@@ -1,21 +1,39 @@
 # Hexo Configuration
 ## Docs: http://hexo.io/docs/configuration.html
+deploy:
+  type: github
+  repo: git@github.com:seanwessmith/seanwessmith.github.io.git
+  branch: master
+
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
+title: Measly Ramblings 
+subtitle: process, analyze, develop
+description: Hexo, Git, Hub
+author: Sean Wesley Smith
+language: en=GB
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://seanwesleysmith.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+
+#Disqus
+disqus_shortname: seanwesleysmith
+
+#Header
+menu:
+  Home:       /
+  Archives:   /archives/
+  Workshops:  /workshops
+  Clojure:    /clojure
+  Slides:     http://seanwessmith.github.io/slides
+  DevGuides:  http://seanwessmith.github.io/developer-guides
+rss: /atom.xml
 
 # Directory
 source_dir: source
