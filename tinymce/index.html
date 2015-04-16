@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="skins/lightgray/content.min.css">
+<script src="tinymce.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+	//theme: "advanced",
+	relative_urls:false,
+	width: 1800,
+    height: 600,
+	paste_convert_word_fake_lists: true,
+	paste_data_images: true,
+	entity_encoding: "raw",
+	apply_source_formatting : false, 
+	plugins: "lists image charmap print preview visualblocks code table contextmenu paste searchreplace jbimages",
+	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons | link image jbimages",
+	
+ });
+</script>
+<meta charset="utf-8">
+<title>Tiny MCE</title>
+</head>
+
+<body>
+<form method="post">
+  <textarea id="elm1" name="area"></textarea>
+</form>
+</body>
+</html>
