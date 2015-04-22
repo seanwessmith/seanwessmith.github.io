@@ -1,49 +1,88 @@
-# Logo Url
-# Please enter the absolute path to your logo file
-# or remove the following line with replacing logo-header.png with your own logo
-logo: http://ppoffice.github.io/hexo-theme-hueman/css/images/logo-header.png
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+deploy:
+  type: github
+  repo: git@github.com:seanwessmith/seanwessmith.github.io.git
+  branch: master
 
-# Header
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Measly Ramblings
+subtitle: process, analyze, develop
+description: Hexo, Git, Hub
+author: Sean Wesley Smith
+language: en=GB
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://seanwesleysmith.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+#Disqus
+disqus_shortname: seanwesleysmith
+
+#Header
 menu:
-  Home: /
-  # Delete this row if you don't want categories in your header nav bar
-  Categories:
-  About: /about/index.html
+  Home:       /
+  Archives:   /archives/
+  Workshops:  /workshops
+  Clojure:    /clojure
+  Slides:     http://seanwessmith.github.io/slides
+  DevGuides:  http://seanwessmith.github.io/developer-guides
+rss: /atom.xml
 
-# Content
-fancybox: true
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
 
-# Thumbnail
-thumbnail: true
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  tab_replace:
 
-# Scroll Loading
-scrollLoading: true
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
 
-# Sidebar
-social_links:
-  twitter:
-  facebook:
-  google_plus:
-  github: https://github.com/ppoffice/hexo-theme-hueman
-  weibo:
-  rss:
-widgets:
-- recent_posts
-- category
-- archive
-- tag
-- tagcloud
-- links
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
 
-# Links
-links:
-  Hexo: http://hexo.io
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
 
-# Don't Use Google APIs if you are in google-blocked areas
-use_google_apis: false
+# Extensions
+## Plugins: http://hexo.io/plugins/
+##Themes: http://hexo.io/themes
+theme: hueman
 
-# Miscellaneous
-google_analytics:
-favicon: /favicon.png
-fb_admins:
-fb_app_id:
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type:
