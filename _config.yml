@@ -8,7 +8,7 @@ deploy:
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Measly Ramblings 
+title: Measly Ramblings
 subtitle: process, analyze, develop
 description: Hexo, Git, Hub
 author: Sean Wesley Smith
@@ -79,7 +79,7 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
+Themes: http://hexo.io/themes/hueman
 theme: landscape
 
 # Deployment
