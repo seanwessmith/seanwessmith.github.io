@@ -1,0 +1,187 @@
+.label-white {
+	background-color: rgba(255,255,255,1)
+}
+.mlabel {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 100%;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(0,0,0,.5);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Raleway", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+    color: white;
+}
+
+p > a{
+    color: #fdff5e;
+}
+
+p > a:visited {
+    text-decoration: none;
+    color: #fdff5e;
+}
+
+p > a:hover {
+    text-decoration: underline;
+    color: #fdff5e;
+}
+
+.full{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#mainblur{
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: opacity 0.25s ease-out;
+    transition: opacity 0.25s ease-out;
+}
+
+.blurbg {
+    z-index: -2;
+    background: url(img/backgroundblur.jpg) no-repeat 70% center;
+    background-attachment:scroll;
+    background-size: cover;
+}
+
+
+.bg {
+    z-index: -3;
+    background: url(img/masters_golf.jpg) no-repeat 70% center;
+    background-attachment:scroll;
+    background-size: cover;
+}
+
+.boxg {
+    padding: 19px 29px 29px;
+    background-color: rgba(107, 190, 72, 1);
+    /* much lag */
+    /*
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 15px rgba(0,0,0, .5);*/
+}
+.boxc {
+    padding: 19px 29px 29px;
+    background-color: rgba(0, 0, 0, .7);
+	height: 30em;
+    /* much lag */
+    /*
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 15px rgba(0,0,0, .5);*/
+}
+
+.btn-transparent {
+    color: #eee;
+    border: 2px solid rgba(255, 255, 255, .17);
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.img-thumbnail {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, .17);
+    
+    /*
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 15px rgba(0,0,0, .5);*/
+    border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 30px;
+    }
+    body{
+        font-size: 18px;
+    }
+}
+
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content {
+    text-align: left;
+    padding-top: 30px;
+}
+
+#connect{
+    padding-bottom: 25%;
+}
+
+.padme{
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.trans1{
+    -webkit-transition: opacity 2s;
+    transition: opacity 2s;
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.constrained{
+    max-width: 1800px;
+}
+
+.navbar-default .navbar-brand{
+    color: white;
+}
+
+small{
+    line-height:50px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #dddddd;
+}
+
+.navbar-fixed-top{
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, .17);
+    /*
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 15px rgba(0,0,0, .5);*/
+}
+
+#cliptop{
+    z-index:100;
+    opacity: 0;
+}
+
+.img_iphone{
+    max-width: 100%;
+}
+.row1 {
+	margin-left: 3pc
+}
+.row2 {
+	margin-left: 3pc
+}
