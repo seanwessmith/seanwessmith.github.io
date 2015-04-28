@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>UOD ROI Calculator</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="wynd.css">
+<link rel="stylesheet" type="text/css" href="3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="modernizer.js"></script>
+<!-- JustGauge Javascript-->
+<script src="raphael.js"></script>
+<script src="justgauge.js"></script>
+</head>
+
+<body>
+<div class="padme" id="connect">
+<div class="row2 col-md-11 boxg">
+  <h2>Output Director &nbsp; &nbsp; &nbsp; |  &nbsp; &nbsp; &nbsp;   ROI Calculator</h2>
+</div>
+
+<!-------------------------------------------------------------------------------- Sliders -------------------------------------------------------------------------------------->
+
+<div class="row2 col-md-6 boxc left"> <br>
+  <form class="form-inline">
+    <label for=fader class="all">&nbsp;&nbsp;&nbsp; # of EBS Instances</label>
+    <div class align="left">
+      <div class="small-10 medium-11 columns">
+        <div id="data1" class="range-slider" data-slider="3" data-options="display_selector: #sliderOutput1; start: 1; end: 30;"> <span class="range-slider-handle" role="slider" tabindex="0"></span> <span class="range-slider-active-segment"></span> </div>
+      </div>
+      <div class="small-2 medium-1 columns"> <span id="sliderOutput1" style="display: block;margin-top: 17px;"></span> </div>
+    </div>
+    <label for=fader class="all">&nbsp;&nbsp;&nbsp; # of Printers</label>
+    <div class align="left">
+      <div class="small-10 medium-11 columns">
+        <div id="data2" class="range-slider" data-slider="250" data-options="display_selector: #sliderOutput2; start: 1; end: 1000;"> <span class="range-slider-handle" role="slider" tabindex="0"></span> <span class="range-slider-active-segment"></span> </div>
+      </div>
+      <div class="small-2 medium-1 columns"> <span id="sliderOutput2" style="display: block;margin-top: 17px;"></span> </div>
+    </div>
+    <br>
+    <br>
+    <hr align="center" >
+    <label for=fader class="all">&nbsp;&nbsp;&nbsp; # of Printer Moves Per Year</label>
+    <div class align="left">
+      <div class="small-10 medium-11 columns">
+        <div id="data3" class="range-slider" data-slider="100" data-options="display_selector: #sliderOutput3; start: 1; end: 500;"> <span class="range-slider-handle" role="slider" tabindex="0"></span> <span class="range-slider-active-segment"></span> </div>
+      </div>
+      <div class="small-2 medium-1 columns"> <span id="sliderOutput3" style="display: block;margin-top: 17px;"></span> </div>
+    </div>
+    <label for=fader class="all">&nbsp;&nbsp;&nbsp; # of Printers Added Per Year</label>
+    <div class align="left">
+      <div class="small-10 medium-11 columns">
+        <div id="data4" class="range-slider" data-slider="50" data-options="display_selector: #sliderOutput4; start: 1; end: 500;"> <span class="range-slider-handle" role="slider" tabindex="0"></span> <span class="range-slider-active-segment"></span> </div>
+      </div>
+      <div class="small-2 medium-1 columns"> <span id="sliderOutput4" style="display: block;margin-top: 17px;"></span> </div>
+    </div>
+    <br><br><hr align="center">
+    <label for=fader class="all">&nbsp;&nbsp;&nbsp; Burden Rate</label>
+    <div class align="left">
+      <div class="small-10 medium-11 columns">
+        <div id="data5" class="range-slider" data-slider="90" data-options="display_selector: #sliderOutput5; start: 1; end: 150;"> <span class="range-slider-handle" role="slider" tabindex="0"></span> <span class="range-slider-active-segment"></span> </div>
+      </div>
+      <div class="small-2 medium-1 columns"> <span id="sliderOutput5" style="display: block;margin-top: 17px;"></span> </div>
+    </div>
+  </form>
+</div>
+
+<!----------------------------------------------------------------------------------------------- Gauges and Bar --------------------------------------------------------------------->
+<div class="col-md-5 boxc right"> <br>
+  <div id="gauge" class="10x10px" style="width: 100%;height: 80%;"></div>
+  <label class="all">&nbsp;&nbsp; We would project your monthly ROI is...</label>
+  <div class="progress">
+    <div id = "progress-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="24"> 6 Months </div>
+  </div>
+<label id="demo"></label>
+</div>
+
+<!-- Range Slider Javascript --> 
+<script>
+      $(document).foundation().foundation('joyride', 'start');
+</script> 
+
+
+<script>
+/************************************* The Javascript below will change the Gauge and Bar onchange of the sliders *************************************/
+var check1;
+var total;
+check1 = $("#sliderOutput1").html();
+check2 = $("#sliderOutput2").html();
+check3 = $("#sliderOutput3").html();
+check4 = $("#sliderOutput4").html();
+check5 = $("#sliderOutput5").html();
+
+$(document).foundation({
+  slider: {
+    on_change: function(){
+      total = (parseFloat(check2) * parseFloat(check5) / ((parseFloat(check1) * 10000) + 10000 - ((parseFloat(check3) / 12 * 3 * parseFloat(check5)) + parseFloat(check4) / 12 * 3 * parseFloat(check5)))) * 10
+	  check1 = $("#sliderOutput1").html();
+	  check2 = $("#sliderOutput2").html();
+	  check3 = $("#sliderOutput3").html();
+	  check4 = $("#sliderOutput4").html();
+	  check5 = $("#sliderOutput5").html();
+      $("#gauge").empty();
+
+      total = (parseFloat(check2) * parseFloat(check5) / ((parseFloat(check1) * 10000) + 10000 - ((parseFloat(check3) / 12 * 3 * parseFloat(check5)) + parseFloat(check4) / 12 * 3 * parseFloat(check5)))) * 10
+
+      //Gauge
+      var g = new JustGage({
+        id: "gauge",
+        value: total,
+        min: 0,
+    	max: 24,
+    	title: "Projected Months Until ROI"
+      }); 
+	    var greeting;
+      if (total < 6) {
+        greeting = "&nbsp; Congrats, You are below the industry average!";
+      } else {
+        greeting = " ";
+      }
+      document.getElementById("demo").innerHTML = greeting;
+	
+		//Matches the progress bar to the Gauge 
+        $("#progress-bar").attr("style", "width:"+ (total * 4.1666666) +"%;");
+        $('#progress-bar').text(function(i, oldText) {
+        return Math.round(total) + " Months";
+		
+	  //Congratulates if ROI is 6 months or less
+      });
+    }
+  }
+});
+</script>
+</body>
+</html>
