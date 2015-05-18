@@ -4,16 +4,9 @@
 	display: block;
 	height: 4px;
 	position: relative;
-	width: 100%
+	width: 90%
 }
-.range-bar-i {
-	background-color: #a9acb1;
-	border-radius: 15px;
-	display: block;
-	height: 1%;
-	position: relative;
-	width: 100%
-}
+
 .range-quantity {
 	background-color: #6BBE48;
 	border-radius: 15px;
