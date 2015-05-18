@@ -25,6 +25,7 @@
 <script>try{Typekit.load();}catch(e){}</script>
 <!--End typekit Integration-->
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div class="padme" id="connect">
@@ -34,45 +35,38 @@
 
 <!------------------------------------------------ Sliders ---------------------------------------------------->
 <div class="boxc"> </div>
-<div class="col-md-5">
-  <form class="form-inline">
+<div class="col-sm-12">
+<br>
     <label for=fader class="all" title="Select the number of EBS instances. The more instances you have the more you need Output Director!">&nbsp;&nbsp;&nbsp; How many EBS instances do you have?</label>
-    <div class="slider-wrapper">
+
       <input type="text" onchange="setTotal()" class="js-instance" />
       <div id="instance-slider"  class="display-box"></div>
-    </div>
+<br>
     <label for=fader class="all" title="Select the number of printers currently used by your company.">&nbsp;&nbsp;&nbsp; Roughly how many printers do you have?</label>
-    <div class="slider-wrapper">
+
       <input type="text" onchange="setTotal()" class="js-printer" />
       <div id="printer-slider" class="display-box"></div>
-    </div>
+<br>
     <hr align="center">
     <label for=fader class="all" title="Select the number of printer relocations your company does per year.">&nbsp;&nbsp;&nbsp; How many printer moves are done per year?</label>
-    <div class="slider-wrapper">
+
       <input type="text" onchange="setTotal()" class="js-moves" />
       <div id="moves-slider" class="display-box"></div>
-    </div>
+<br>
     <label for=fader class="all" title="Select the number of printer your company purchases each year.">&nbsp;&nbsp;&nbsp; How many printers are added per year?</label>
-    <div class="slider-wrapper">
+
       <input type="text" onchange="setTotal()" class="js-added" />
       <div id="added-slider" class="display-box"></div>
-    </div>
+<br>
     <hr align="center">
     <label for=fader class="all" title="Select the burden rate for your average computer engineer. Burden Rate equals all the cost that goes into an employee; salary, benefits, medical">&nbsp;&nbsp;&nbsp; What is your burden rate?</label>
-    <div class="slider-wrapper">
+
       <input type="text" onchange="setTotal()" class="js-burden" />
       <div id="burden-slider" class="display-box"></div>
-    </div>
-  </form>
-</div>
-<div class="mid-md-2"> </div>
+<br>
+
 <!----------------------------------------------------------------------------------------------- Gauges and Bar --------------------------------------------------------------------->
-<div class="col-md-5">
   <div id="gauge" class="10x10px" style="width: 100%;height: 80%;"></div>
-  <label class="all">&nbsp;&nbsp; We would project your monthly ROI is...</label>
-  <div class="progress">
-    <div id = "progress-bar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="24"> 6 Months </div>
-  </div>
   <label id="demo"></label>
 </div>
 
