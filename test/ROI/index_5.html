@@ -30,44 +30,34 @@
 <body>
 <div class="padme" id="connect">
 <div class="col-sm-12 boxg">
-  <h2>Output Director <br> ROI Calculator</h2>
+  <h2>Output Director <br>
+    ROI Calculator</h2>
 </div>
 
 <!------------------------------------------------ Sliders ---------------------------------------------------->
 <div class="boxc"> </div>
-<div class="col-sm-12">
-<br>
-    <label for=fader class="all" title="Select the number of EBS instances. The more instances you have the more you need Output Director!">&nbsp;&nbsp;&nbsp; # of EBS instances?</label>
-
-      <input type="text" onchange="setTotal()" class="js-instance" />
-      <div id="instance-slider"  class="display-box"></div>
-
-    <label for=fader class="all" title="Select the number of printers currently used by your company.">&nbsp;&nbsp;&nbsp; # of printers?</label>
-
-      <input type="text" onchange="setTotal()" class="js-printer" />
-      <div id="printer-slider" class="display-box"></div>
-
-    <label for=fader class="all" title="Select the number of printer relocations your company does per year.">&nbsp;&nbsp;&nbsp; # printer moves per year?</label>
-
-      <input type="text" onchange="setTotal()" class="js-moves" />
-      <div id="moves-slider" class="display-box"></div>
-
-    <label for=fader class="all" title="Select the number of printer your company purchases each year.">&nbsp;&nbsp;&nbsp; # of new printers per year?</label>
-
-      <input type="text" onchange="setTotal()" class="js-added" />
-      <div id="added-slider" class="display-box"></div>
-
-    <label for=fader class="all" title="Select the burden rate for your average computer engineer. Burden Rate equals all the cost that goes into an employee; salary, benefits, medical">&nbsp;&nbsp;&nbsp; What is your burden rate?</label>
-
-      <input type="text" onchange="setTotal()" class="js-burden" />
-      <div id="burden-slider" class="display-box"></div>
-<br>
-
-<!----------------------------------------------------------------------------------------------- Gauges and Bar --------------------------------------------------------------------->
+<div class="col-sm-12"> <br>
+  <label for=fader class="all" title="Select the number of EBS instances. The more instances you have the more you need Output Director!">&nbsp;&nbsp;&nbsp; # of EBS instances?</label>
+  <input type="text" onchange="setTotal()" class="js-instance" />
+  <div id="instance-slider" align="center" ></div>
+  <label for=fader class="all" title="Select the number of printers currently used by your company.">&nbsp;&nbsp;&nbsp; # of printers?</label>
+  <input type="text" onchange="setTotal()" class="js-printer" />
+  <div id="printer-slider" align="center" ></div>
+  <label for=fader class="all" title="Select the number of printer relocations your company does per year.">&nbsp;&nbsp;&nbsp; # printer moves per year?</label>
+  <input type="text" onchange="setTotal()" class="js-moves" />
+  <div id="moves-slider" align="center" ></div>
+  <label for=fader class="all" title="Select the number of printer your company purchases each year.">&nbsp;&nbsp;&nbsp; # of new printers per year?</label>
+  <input type="text" onchange="setTotal()" class="js-added" />
+  <div id="added-slider" align="center" ></div>
+  <label for=fader class="all" title="Select the burden rate for your average computer engineer. Burden Rate equals all the cost that goes into an employee; salary, benefits, medical">&nbsp;&nbsp;&nbsp; What is your burden rate?</label>
+  <input type="text" onchange="setTotal()" class="js-burden" />
+  <div id="burden-slider" align="center" ></div>
+  <br>
+  
+  <!----------------------------------------------------------------------------------------------- Gauges and Bar --------------------------------------------------------------------->
   <div id="gauge" class="10x10px" style="width: 100%;height: 80%;"></div>
   <label id="demo"></label>
 </div>
-
 <script>
 ////////////////////////////////Instance Slider////////////////////////////////
     var instance = document.querySelector('.js-instance');
@@ -79,7 +69,7 @@
 	
 //////////////////////////////Printer Slider/////////////////////////////////
     var printer = document.querySelector('.js-printer');
-    var initPrinter = new Powerange(printer, { callback: displayValue2, max: 1000, start: 250 });
+    var initPrinter = new Powerange(printer, { callback: displayValue2, min: 50, max: 1000, start: 250 });
 
     function displayValue2() {
       document.getElementById('printer-slider').innerHTML = printer.value;
@@ -100,12 +90,12 @@
     }
 //////////////////////////////Burden Slider/////////////////////////////////
     var burden = document.querySelector('.js-burden');
-    var initBurden = new Powerange(burden, { callback: displayValue5, max: 150, start: 90 });
+    var initBurden = new Powerange(burden, { callback: displayValue5, min:25, max: 150, start: 90 });
 
     function displayValue5() {
       document.getElementById('burden-slider').innerHTML = burden.value;
     }	
-</script>
+</script> 
 <script>
 /************************************* The Javascript below will change the Gauge and Bar onchange of the sliders *************************************/
       var check1 = document.getElementById('instance-slider').innerHTML = instance.value
