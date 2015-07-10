@@ -1,6 +1,6 @@
 ROI Calculator
 ----------
-A powerful PHP and jQuery Return on Investment calculator
+A powerful PHP and jQuery Return on Investment calculator.
 
 Features
 ----------
