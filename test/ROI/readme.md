@@ -6,12 +6,12 @@ Features
 Uses ios-styled sliders, excellent control on iOS and OS X.
 Shows gauge that changes colors based upon value. 
 
-'''ruby
+```ruby
 git clone 'https://github.com/seanwessmith/seanwessmith.github.io/tree/master/test/ROI.git'
 cd ROI
 git submodule update --init --recursive
 make
-'''
+```
 
 License
 
