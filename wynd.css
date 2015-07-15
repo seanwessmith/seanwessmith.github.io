@@ -36,7 +36,7 @@ p > a:hover {
 
 .blurbg {
     z-index: -2;
-    background: url(../measlyramblings/img/backgroundblur.jpg) no-repeat 70% center;
+    background: url(../img/backgroundblur.jpg) no-repeat 70% center;
     background-attachment:scroll;
     background-size: cover;
 }
@@ -44,7 +44,7 @@ p > a:hover {
 
 .bg {
     z-index: -3;
-    background: url(../measlyramblings/img/background.jpg) no-repeat 70% center;
+    background: url(../img/background.jpg) no-repeat 70% center;
     background-attachment:scroll;
     background-size: cover;
 }
