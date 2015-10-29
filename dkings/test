@@ -1,0 +1,14 @@
+<?php
+$mysqli = new mysqli("localhost", "root", "root", "dkings");
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
+
+$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'QB' LIMIT 1, 1");
+
+echo "Result set order...\n";
+$res->data_seek(0);
+while ($row = $res->fetch_assoc()) {
+    echo " id = " . $row['id'] . "\n";
+}
+?>
