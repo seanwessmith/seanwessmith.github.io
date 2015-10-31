@@ -1,3 +1,6 @@
+
+
+
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2268,8 +2271,7 @@ output {
 	line-height: 1.42857143;
 }
 .form-control {
-	display: block;
-	width: 100%;
+	width: 25%;
 	height: 34px;
 	padding: 6px 12px;
 	font-size: 14px;

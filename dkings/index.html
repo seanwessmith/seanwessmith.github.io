@@ -51,75 +51,187 @@ if ($mysqli->connect_errno) {
     <h1>Fantasy Football Quant</h1>
     <small>Enter your salary cap:</small>
     <table>
-			<input type="text" autocomplete="false" spellcheck="false" name="salarycap" class="textbox" id="salarycap" placeholder="Salary Cap" value="<?php if($salarycap) print $salarycap ?>">
+			<input type="text" autocomplete="false" class="form-control" class="textbox" name="salarycap" id="salarycap" placeholder="Salary Cap" value="<?php if($salarycap) print $salary ?>">
 		</table>
 	</div>
+	<?php
+	$sal_cap = 50000;
+	$tot_sal = 0;
+	//Select one quarterback for the team
+	$qb = 0;
+	$y = 0;
+	for ($y = 1; $y <= 1;) {
+	$res = $mysqli->query("SELECT * FROM values_desc WHERE position = 'QB' ORDER BY value DESC LIMIT $qb,1");
+	$res->data_seek(0);
+	while ($row = $res->fetch_assoc()) {
+		$t_salary = '';
+		$t_name = '';
+		$t_value = '';
+		$t_name = $row['name'];
+		$t_salary = floatval($row['salary']);
+		$t_value = $row['value'];
+		$tot_sal = $tot_sal + $t_salary;
+
+} if ($tot_sal < $sal_cap) {
+	$y++;
+	${"qb_n".$qb} = $t_name;
+	${"qb_s".$qb} = $t_salary;
+	${"qb_v".$qb} = $t_value;
+}
+$qb++;
+}
+
+//Select two runningbacks for the team
+$rb = 0;
+$y = 0;
+for ($y = 1; $y <= 2;) {
+$res = $mysqli->query("SELECT * FROM values_desc WHERE position = 'RB' ORDER BY value DESC LIMIT $rb,1");
+$res->data_seek(0);
+while ($row = $res->fetch_assoc()) {
+	$t_salary = '';
+	$t_name = '';
+	$t_value = '';
+	$t_name = $row['name'];
+	$t_salary = floatval($row['salary']);
+	$t_value = $row['value'];
+	$tot_sal = $tot_sal + $t_salary;
+
+} if ($tot_sal < $sal_cap) {
+$y++;
+${"rb_n".$rb} = $t_name;
+${"rb_s".$rb} = $t_salary;
+${"rb_v".$rb} = $t_value;
+}
+$rb++;
+}
+
+//Select three wide receivers for the team
+$wr = 0;
+$y = 0;
+for ($y = 1; $y <= 3;) {
+$res = $mysqli->query("SELECT * FROM values_desc WHERE position = 'WR' ORDER BY value DESC LIMIT $wr,1");
+$res->data_seek(0);
+while ($row = $res->fetch_assoc()) {
+	$t_salary = '';
+	$t_name = '';
+	$t_value = '';
+	$t_name = $row['name'];
+	$t_salary = floatval($row['salary']);
+	$t_value = $row['value'];
+	$tot_sal = $tot_sal + $t_salary;
+
+} if ($tot_sal < $sal_cap) {
+$y++;
+${"wr_n".$wr} = $t_name;
+${"wr_s".$wr} = $t_salary;
+${"wr_v".$wr} = $t_value;
+}
+$wr++;
+}
+//Select one tight-end for the team
+$te = 0;
+$y = 0;
+for ($y = 1; $y <= 1;) {
+$res = $mysqli->query("SELECT * FROM values_desc WHERE position = 'TE' ORDER BY value DESC LIMIT $te,1");
+$res->data_seek(0);
+while ($row = $res->fetch_assoc()) {
+	$t_salary = '';
+	$t_name = '';
+	$t_value = '';
+	$t_name = $row['name'];
+	$t_salary = floatval($row['salary']);
+	$t_value = $row['value'];
+	$tot_sal = $tot_sal + $t_salary;
+
+} if ($tot_sal < $sal_cap) {
+$y++;
+${"te_n".$te} = $t_name;
+${"te_s".$te} = $t_salary;
+${"te_v".$te} = $t_value;
+}
+$wr++;
+}
+//Select one defense/special teams for the team
+$dst = 0;
+$y = 0;
+for ($y = 1; $y <= 1;) {
+$res = $mysqli->query("SELECT * FROM values_desc WHERE position = 'DST' ORDER BY value DESC LIMIT $dst,1");
+$res->data_seek(0);
+while ($row = $res->fetch_assoc()) {
+	$t_salary = '';
+	$t_name = '';
+	$t_value = '';
+	$t_name = $row['name'];
+	$t_salary = floatval($row['salary']);
+	$t_value = $row['value'];
+	$tot_sal = $tot_sal + $t_salary;
+
+} if ($tot_sal < $sal_cap) {
+$y++;
+${"dst_n".$dst} = $t_name;
+${"dst_s".$dst} = $t_salary;
+${"dst_v".$dst} = $t_value;
+}
+$wr++;
+}
+//Select one flex position for the team
+$flex = 0;
+$y = 0;
+for ($y = 1; $y <= 1;) {
+$res = $mysqli->query("SELECT * FROM values_desc WHERE position = 'QB' OR position = 'WR' OR position = 'RB' ORDER BY value DESC LIMIT $flex,1");
+$res->data_seek(0);
+while ($row = $res->fetch_assoc()) {
+	$t_salary = '';
+	$t_name = '';
+	$t_value = '';
+	$t_name = $row['name'];
+	$t_salary = floatval($row['salary']);
+	$t_value = $row['value'];
+	$tot_sal = $tot_sal + $t_salary;
+
+} if ($tot_sal < $sal_cap) {
+	if ($t_name != $qb_n0 and $t_name != $rb_n0 and $t_name != $rb_n1 and $t_name != $wr_n0 and $t_name != $wr_n1 and $t_name != $wr_n2 and $t_name != $te_n0 and $t_name != $dst_n0) {
+		$y++;
+		${"flex_n".$flex} = $t_name;
+		${"flex_s".$flex} = $t_salary;
+		${"flex_v".$flex} = $t_value;
+		}
+$flex++;
+}
+}
+	 ?>
 <div class="row padme" id="projects">
   <div id="box2" class="col-xs-11 col-md-12 box center">
 		<table class="table table-bordered">
 		  <tbody>
 		    <tr>
-		      <?php
-          $res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'QB' LIMIT 1");
-		      $res->data_seek(0);
-		      while ($row = $res->fetch_assoc()) { ?>
-		      <td><?php echo $row['name']; ?></td>
-		<?php } ?>
+
+		      <td><?php echo $qb_n0; ?></td>
 		</tr>
 		<tr>
-			<?php
-			$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'RB' LIMIT 2");
-			$res->data_seek(0);
-			while ($row = $res->fetch_assoc()) { ?>
-			<td><?php echo $row['name']; ?></td>
-<?php } ?>
+<td><?php echo $rb_n0; ?></td>
+<td><?php echo $rb_n1; ?></td>
 </tr>
 <tr>
-	<?php
-	$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'WR' LIMIT 3");
-	$res->data_seek(0);
-	while ($row = $res->fetch_assoc()) { ?>
-	<td><?php echo $row['name']; ?></td>
-<?php } ?>
+
 </tr>
 <tr>
-	<?php
-	$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'TE' LIMIT 1");
-	$res->data_seek(0);
-	while ($row = $res->fetch_assoc()) { ?>
-	<td><?php echo $row['name']; ?></td>
-<?php } ?>
+<td><?php echo $wr_n0; ?></td>
+<td><?php echo $wr_n1; ?></td>
+<td><?php echo $wr_n2; ?></td>
 </tr>
 <tr>
-	<?php
-	//Should be a flex position///////
-	$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'WR' LIMIT 1");
-	$res->data_seek(0);
-	while ($row = $res->fetch_assoc()) { ?>
-	<td><?php echo $row['name']; ?></td>
-<?php } ?>
+<td><?php echo $te_n0; ?></td>
 </tr>
 <tr>
-	<?php
-	$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'DST' LIMIT 1");
-	$res->data_seek(0);
-	while ($row = $res->fetch_assoc()) { ?>
-	<td><?php echo $row['name']; ?></td>
-<?php } ?>
+<td><?php echo $dst_n0; ?></td>
+</tr>
+<tr>
+<td><?php echo $flex_n2; ?></td>
 </tr>
 	</tbody>
 </table>
-	<!--
-	$res = $mysqli->query("SELECT * FROM salaries_desc WHERE position = 'QB' LIMIT 1, 1");
-
-	$res->data_seek(0);
-	while ($row = $res->fetch_assoc()) {
-	    echo " id = " . $row['name'] . "\n";
-	}
-  -->
   </div>
 </div>
-
-</script>
 </body>
 </html>
